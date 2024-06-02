@@ -1,0 +1,133 @@
+# AirBnB Clone V4
+
+This is a complete full-stack web application, integrating a MySQL database and Flask RESTful API with a dynamic HTML5/CSS3/jQuery front-end. It is based on the basic characteristics of the Airbnb platform.
+
+## Iterations
+
+The project was developed in several iterations, with V4 being the last one. Each iteration encompassed several concepts and integrations that are explained below.
+
+### The Console
+
+The first iteration of the project involved building an interactive console for development testing.
+
+#### Features
+
+The Console was coded to work with a temporary storage engine based on JSON and included the following features:
+
+- Create a new object (e.g., a new User or a new Place)
+- Retrieve an object from a file, a database, etc.
+- Perform operations on objects (count, compute stats, etc.)
+- Update attributes of an object
+- Destroy an object
+
+#### Modes
+
+The console has two modes:
+
+- **Interactive Mode:**
+  ```bash
+  $ ./console.py
+  (hbnb) help
+
+  Documented commands (type help <topic>):
+  ========================================
+  EOF  help  quit
+
+  (hbnb)
+  (hbnb)
+  (hbnb) quit
+  $
+  ```
+
+- **Non-Interactive Mode:**
+  ```bash
+  $ echo "help" | ./console.py
+  (hbnb)
+
+  Documented commands (type help <topic>):
+  ========================================
+  EOF  help  quit
+  (hbnb)
+  $
+  $ cat test_help
+  help
+  $
+  $ cat test_help | ./console.py
+  (hbnb)
+
+  Documented commands (type help <topic>):
+  ========================================
+  EOF  help  quit
+  (hbnb)
+  $
+  ```
+
+### Web Static
+
+This part of the project involved building the basic CSS and HTML source code.
+
+### MySQL
+
+This section involved the data modeling for the relational database in MySQL.
+
+### Web Framework
+
+This iteration involved building the first approach to dynamic content for the application using Flask and Jinja, effectively implementing Server Side Rendering.
+
+During this phase, the MySQL database was used to serve content to the client, providing backend-based features. All HTML and CSS source code was hosted on the server, and no items were hard-coded; instead, they were produced through dynamic data integration.
+
+### RESTful API
+
+Although Server Side Rendering with Flask and Jinja was interesting, this section involved developing a different approach to dynamic content generation by starting with a RESTful API. This API was built with Flask and SQLAlchemy to work with MySQL and respond to HTTP requests.
+
+#### Endpoints
+
+- **GET /api/v1/status:** Returns the status of the API
+- **GET /api/v1/stats:** Retrieves the number of each object type
+- **GET /api/v1/states:** Retrieves the list of all State objects
+- **GET /api/v1/states/<state_id>:** Retrieves a State object
+- **DELETE /api/v1/states/<state_id>:** Deletes a State object
+- **POST /api/v1/states:** Creates a State
+- **PUT /api/v1/states/<state_id>:** Updates a State object
+
+- **GET /api/v1/states/<state_id>/cities:** Retrieves the list of all City objects of a State
+- **GET /api/v1/cities/<city_id>:** Retrieves a City object
+- **DELETE /api/v1/cities/<city_id>:** Deletes a City object
+- **POST /api/v1/states/<state_id>/cities:** Creates a City
+- **PUT /api/v1/cities/<city_id>:** Updates a City object
+
+- **GET /api/v1/amenities:** Retrieves the list of all Amenity objects
+- **GET /api/v1/amenities/<amenity_id>:** Retrieves an Amenity object
+- **DELETE /api/v1/amenities/<amenity_id>:** Deletes an Amenity object
+- **POST /api/v1/amenities:** Creates an Amenity
+- **PUT /api/v1/amenities/<amenity_id>:** Updates an Amenity object
+
+- **GET /api/v1/users:** Retrieves the list of all User objects
+- **GET /api/v1/users/<user_id>:** Retrieves a User object
+- **DELETE /api/v1/users/<user_id>:** Deletes a User object
+- **POST /api/v1/users:** Creates a User
+- **PUT /api/v1/users/<user_id>:** Updates a User object
+
+- **GET /api/v1/cities/<city_id>/places:** Retrieves the list of all Place objects of a City
+- **GET /api/v1/places/<place_id>:** Retrieves a Place object
+- **DELETE /api/v1/places/<place_id>:** Deletes a Place object
+- **POST /api/v1/cities/<city_id>/places:** Creates a Place
+- **PUT /api/v1/places/<place_id>:** Updates a Place object
+
+- **GET /api/v1/places/<place_id>/reviews:** Retrieves the list of all Review objects of a Place
+- **GET /api/v1/reviews/<review_id>:** Retrieves a Review object
+- **DELETE /api/v1/reviews/<review_id>:** Deletes a Review object
+- **POST /api/v1/places/<place_id>/reviews:** Creates a Review
+- **PUT /api/v1/reviews/<review_id>:** Updates a Review object
+
+- **GET /api/v1/places/<place_id>/amenities:** Retrieves the list of all Amenity objects of a Place
+- **DELETE /api/v1/places/<place_id>/amenities/<amenity_id>:** Deletes an Amenity object to a Place
+- **POST /api/v1/places/<place_id>/amenities/<amenity_id>:** Links an Amenity object to a Place
+
+- **POST /api/v1/places_search:** Retrieves all Place objects depending on the JSON in the body of the request.
+
+- **GET /apidocs:** Gets the documentation of the API built in Flasgger
+
+### Web Dynamic
+
+This was the final iteration of the project and involved changing the Server Side Rendering to Client-Side Rendering using JavaScript with jQuery, and the RESTful API from the previous iteration.
